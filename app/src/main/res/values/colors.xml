@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0053CF</color>
+    <color name="colorPrimaryLight">#2D6DCE</color>
+    <color name="colorSecondary">#FFBC3A</color>
+    <color name="colorTertiary">#0053CF</color>
+    <color name="colorSurface">#FFBC3A</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lightGrey">#FFF0F0F0</color>
+    <color name="midGrey">#FFE0E0E0</color>
+    <color name="colorOutline">#0053CF</color>
+</resources>

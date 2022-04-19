@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PassGuard</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="title">Title</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="add_password">Add Password</string>
+    <string name="website">Website</string>
+    <string name="add_extra_info">Add Extra Info</string>
+    <string name="label">Label</string>
+    <string name="value">Value</string>
+    <string name="hidden">Hidden</string>
+    <string name="confidential">Confidential</string>
+    <string name="visibility">Visibility</string>
+    <string name="extras">Extras</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="delete_password">Delete password</string>
+    <string name="delete_confirmation_message">This is non-reversible. Are you sure you want to delete this password?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+</resources>
