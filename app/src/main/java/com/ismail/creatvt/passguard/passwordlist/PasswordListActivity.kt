@@ -13,12 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ismail.creatvt.passguard.LockedActivity
 import com.ismail.creatvt.passguard.PassGuardApplication
 import com.ismail.creatvt.passguard.R
+import com.ismail.creatvt.passguard.SecureActivity
 import com.ismail.creatvt.passguard.addpassword.AddUpdatePasswordActivity
 import com.ismail.creatvt.passguard.model.Password
 import com.ismail.creatvt.passguard.model.Password.Companion.PASSWORD
 import com.ismail.creatvt.passguard.viewpassword.ViewPasswordActivity
 
-class MainActivity : AppCompatActivity() {
+class PasswordListActivity : SecureActivity() {
 
     private var adapter: PasswordsAdapter? = null
     private var lockActivityLauncher: ActivityResultLauncher<Intent>? = null
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         isFirstLaunch = true
         isPaused = false
         setContentView(R.layout.activity_main)
-        window?.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
         setUpPasswordsListRecyclerView()
 

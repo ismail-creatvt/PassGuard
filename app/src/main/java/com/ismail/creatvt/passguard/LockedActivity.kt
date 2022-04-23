@@ -1,13 +1,12 @@
 package com.ismail.creatvt.passguard
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.ismail.creatvt.passguard.manager.SecurityManager
 import com.ismail.creatvt.passguard.manager.security.AuthenticationResultListener
 import com.ismail.creatvt.passguard.manager.security.SecurityManager
 
-class LockedActivity : AppCompatActivity(), AuthenticationResultListener {
+class LockedActivity : SecureActivity(), AuthenticationResultListener {
 
     private var securityManager:SecurityManager?=null
 
