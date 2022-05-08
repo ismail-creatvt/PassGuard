@@ -47,8 +47,14 @@ class PasswordsAdapter(
             findViewById<ImageView>(R.id.websiteIcon).setImageResource(
                 WebsiteFactory.getIcon(passwords[position].website.icon)
             )
-            findViewById<TextView>(R.id.websiteText).text = passwords[position].website.name
-            findViewById<TextView>(R.id.usernameText).text = passwords[position].username
+            findViewById<TextView>(R.id.websiteText).apply {
+                text = passwords[position].website.websiteName
+                isSelected = true
+            }
+            findViewById<TextView>(R.id.usernameText).apply {
+                text = passwords[position].username
+                isSelected = true
+            }
         }
     }
 

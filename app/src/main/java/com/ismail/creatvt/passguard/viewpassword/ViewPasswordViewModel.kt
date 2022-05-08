@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.ismail.creatvt.passguard.PassGuardApplication
 import com.ismail.creatvt.passguard.manager.security.AuthenticationResultListener
 import com.ismail.creatvt.passguard.model.Password
+import com.ismail.creatvt.passguard.model.WebsiteFactory
 
 class ViewPasswordViewModel : ViewModel(), AuthenticationResultListener {
 
@@ -19,8 +20,10 @@ class ViewPasswordViewModel : ViewModel(), AuthenticationResultListener {
         set(value) {
             field = value
             _extraViewModels.value = value?.extras?.map { ViewExtraViewModel(it) } ?: listOf()
-            Log.d("ViewPasswordVMTag", "Extras set...${value?.extras?.joinToString(",")} ${_extraViewModels.value?.size}")
         }
+
+    val shouldShowOtherName: Boolean
+        get() = password?.website?.name == WebsiteFactory.OTHER
 
     private var didRequestAuthentication = false
 

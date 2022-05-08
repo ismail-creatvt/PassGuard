@@ -1,9 +1,10 @@
 package com.ismail.creatvt.passguard.addpassword
 
 import android.app.Application
-import android.view.View
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
 import com.ismail.creatvt.passguard.PassGuardApplication
 import com.ismail.creatvt.passguard.manager.password.PasswordManager
 import com.ismail.creatvt.passguard.model.Extra
@@ -19,12 +20,18 @@ class AddUpdatePasswordViewModel(application: Application) : AndroidViewModel(ap
 
     val selectedWebsite = MutableLiveData<String>()
 
+    val shouldShowOtherName: LiveData<Boolean> = selectedWebsite.map {
+        it == WebsiteFactory.OTHER
+    }
+
     val username = MutableLiveData("")
     val password = MutableLiveData("")
     val usernameError = MutableLiveData<String?>(null)
     val passwordError = MutableLiveData<String?>(null)
     val extraInfo = MutableLiveData<List<ExtraViewModel>>(arrayListOf())
     val websiteError = MutableLiveData<String?>(null)
+    val otherWebsiteName = MutableLiveData("")
+    val otherWebsiteError = MutableLiveData<String?>(null)
 
     var originalPassword: Password? = null
         set(value) {
@@ -32,6 +39,7 @@ class AddUpdatePasswordViewModel(application: Application) : AndroidViewModel(ap
             username.value = value?.username
             password.value = value?.password
             selectedWebsite.value = value?.website?.name?:""
+            otherWebsiteName.value = value?.website?.otherName?:""
             extraInfo.value = value?.extras?.map {
                 ExtraViewModel(it, this::onDeleteExtraClick)
             }
@@ -44,11 +52,21 @@ class AddUpdatePasswordViewModel(application: Application) : AndroidViewModel(ap
         val selectedWebsite = selectedWebsite.value ?: ""
         val website = websiteList.firstOrNull { it.name == selectedWebsite }
 
+        val otherWebsiteText = otherWebsiteName.value?.trim()
+
         if (website == null) {
             websiteError.postValue("Please select website")
             return
         }
         websiteError.postValue(null)
+        if(selectedWebsite == WebsiteFactory.OTHER) {
+            if(otherWebsiteText.isNullOrEmpty()) {
+                otherWebsiteError.postValue("Please enter other website name")
+                return
+            }
+            website.otherName = otherWebsiteText
+            otherWebsiteError.postValue(null)
+        }
 
         if (usernameText.isNullOrEmpty()) {
             usernameError.postValue("Please enter username")

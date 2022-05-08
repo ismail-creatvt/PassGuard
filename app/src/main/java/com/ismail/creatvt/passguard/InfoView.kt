@@ -69,7 +69,7 @@ class InfoView @JvmOverloads constructor(
         labelView.text = label
     }
 
-    fun setText(text: String) {
+    fun setText(text: String?) {
         textView.text = text
     }
 

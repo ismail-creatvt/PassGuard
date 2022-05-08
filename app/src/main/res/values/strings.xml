@@ -20,4 +20,5 @@
     <string name="delete_confirmation_message">This is non-reversible. Are you sure you want to delete this password?</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="website_name">Website name</string>
 </resources>

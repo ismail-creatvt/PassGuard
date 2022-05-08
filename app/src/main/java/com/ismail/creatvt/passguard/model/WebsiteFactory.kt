@@ -4,7 +4,7 @@ import com.ismail.creatvt.passguard.R
 
 object WebsiteFactory {
 
-    private val OTHER = "Other"
+    const val OTHER = "Other"
 
     private val iconsMap = mapOf(
         "amazon" to R.drawable.amazon,
